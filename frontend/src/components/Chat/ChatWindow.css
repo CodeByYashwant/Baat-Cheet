@@ -5,6 +5,10 @@
   background: var(--bg-darker);
   position: relative;
   font-family: 'Poppins', sans-serif;
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .chat-window-header {
@@ -22,6 +26,10 @@
   align-items: center;
   gap: 16px;
   min-height: 80px;
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .mobile-back-button-header {
@@ -164,10 +172,19 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+  .chat-window {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
   .chat-window-header {
     padding: 16px 18px;
     min-height: 75px;
     gap: 12px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(15, 10, 26, 0.98);
   }
 
   .mobile-back-button-header {

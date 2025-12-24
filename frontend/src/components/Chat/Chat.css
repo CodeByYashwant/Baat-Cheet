@@ -19,6 +19,9 @@
   z-index: 10;
   transition: transform 0.3s ease;
   border-right: 2px solid rgba(147, 51, 234, 0.3);
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .chat-header {
@@ -209,6 +212,10 @@
   flex-direction: column;
   background: var(--bg-darker);
   position: relative;
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .no-chat-selected {
@@ -341,6 +348,12 @@
       4px 0 16px rgba(0, 0, 0, 0.5),
       0 0 40px var(--glow-purple);
     transition: transform 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(15, 10, 26, 0.98);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
   }
 
   .chat-sidebar.show {
@@ -366,6 +379,8 @@
   .chat-main {
     width: 100%;
     position: relative;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   .chat-header {

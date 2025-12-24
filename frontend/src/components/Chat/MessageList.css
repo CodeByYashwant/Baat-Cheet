@@ -8,6 +8,11 @@
   background: var(--bg-darker);
   position: relative;
   font-family: 'Poppins', sans-serif;
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-overflow-scrolling: touch;
 }
 
 .message-list.empty {
@@ -33,6 +38,8 @@
   align-items: flex-end;
   animation: slideIn 0.3s ease-out;
   max-width: 75%;
+  transform: translateZ(0);
+  will-change: transform, opacity;
 }
 
 @keyframes slideIn {
@@ -195,6 +202,12 @@
   .message-list {
     padding: 16px;
     gap: 12px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .message {
+    will-change: auto;
   }
 
   .message {
