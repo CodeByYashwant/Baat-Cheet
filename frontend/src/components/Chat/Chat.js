@@ -241,7 +241,7 @@ const Chat = () => {
           </div>
         )}
       </div>
-      {!showSidebar && (
+      {!showSidebar && !selectedUser && (
         <div 
           className="sidebar-overlay" 
           onClick={() => setShowSidebar(true)}
