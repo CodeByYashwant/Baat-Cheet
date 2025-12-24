@@ -1,0 +1,162 @@
+.message-input-container {
+  padding: 20px 24px;
+  background: rgba(15, 10, 26, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 2px solid rgba(147, 51, 234, 0.3);
+  box-shadow: 
+    0 -2px 8px rgba(0, 0, 0, 0.3),
+    0 0 20px var(--glow-purple);
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  font-family: 'Poppins', sans-serif;
+}
+
+.message-input-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  max-width: 100%;
+}
+
+.message-input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 2px solid rgba(147, 51, 234, 0.3);
+  border-radius: 24px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: rgba(15, 10, 26, 0.6);
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-light);
+  min-height: 48px;
+}
+
+.message-input:focus {
+  outline: none;
+  border-color: var(--neon-purple-light);
+  background: rgba(15, 10, 26, 0.8);
+  box-shadow: 
+    0 0 0 4px rgba(147, 51, 234, 0.2),
+    0 0 20px var(--glow-purple);
+}
+
+.message-input::placeholder {
+  color: rgba(233, 213, 255, 0.5);
+}
+
+.send-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--neon-purple) 0%, var(--neon-pink) 100%);
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 12px rgba(147, 51, 234, 0.4),
+    0 0 20px var(--glow-purple);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.send-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.send-button:hover:not(:disabled)::before {
+  width: 300px;
+  height: 300px;
+}
+
+.send-button:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 
+    0 6px 20px rgba(147, 51, 234, 0.6),
+    0 0 30px var(--glow-purple);
+}
+
+.send-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.send-button svg {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.send-button:hover:not(:disabled) svg {
+  transform: translate(2px, -2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .message-input-container {
+    padding: 16px 18px;
+  }
+
+  .message-input-form {
+    gap: 10px;
+  }
+
+  .message-input {
+    padding: 12px 18px;
+    font-size: 0.9rem;
+    min-height: 44px;
+    border-radius: 22px;
+  }
+
+  .send-button {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .message-input-container {
+    padding: 12px 16px;
+  }
+
+  .message-input-form {
+    gap: 8px;
+  }
+
+  .message-input {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    min-height: 40px;
+    border-radius: 20px;
+  }
+
+  .send-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .send-button svg {
+    width: 18px;
+    height: 18px;
+  }
+}
